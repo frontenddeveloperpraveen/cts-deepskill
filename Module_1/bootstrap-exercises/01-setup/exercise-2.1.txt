@@ -1,0 +1,31 @@
+Exercise 2.1 - Bootstrap Directory Structure Exploration
+
+When you download Bootstrap (or install via npm), the directory structure
+inside dist/ or node_modules/bootstrap/dist/ contains:
+
+  dist/
+    css/
+      bootstrap.min.css       -- Compiled, minified CSS (main stylesheet)
+      bootstrap.css           -- Unminified version for development/debugging
+      bootstrap-grid.min.css  -- Only the grid system CSS
+      bootstrap-utilities.min.css -- Only utility classes
+      bootstrap-reboot.min.css -- Only CSS reset/normalize
+
+    js/
+      bootstrap.min.js         -- Core JS plugins (minified)
+      bootstrap.bundle.min.js  -- Core JS + Popper.js bundled (minified)
+      bootstrap.js             -- Unminified JS for development
+      bootstrap.bundle.js      -- Unminified bundle + Popper
+
+    -- NOTE: Bootstrap 5 dropped jQuery dependency. Popper.js is required
+       for tooltips, popovers, and dropdowns. bootstrap.bundle includes Popper.
+
+    icons/  (only if Bootstrap Icons package is installed separately)
+      bootstrap-icons.css      -- Stylesheet for icon font
+      fonts/                   -- Icon font files (eot, svg, ttf, woff, woff2)
+      icons/                   -- Individual SVG icon files
+
+Purpose summary:
+  - css/     : Visual styling, layout grid, utilities, responsive design
+  - js/      : Interactive components (modals, dropdowns, carousels, etc.)
+  - icons/   : SVG icon library (1,600+ icons) for UI elements
