@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Registration</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 600px; margin: 2rem auto; padding: 0 1rem; }
+    label { display: block; margin-top: 1rem; font-weight: bold; }
+    input, select, textarea { width: 100%; padding: 0.5rem; margin-top: 0.25rem; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+    button { margin-top: 1.5rem; padding: 0.75rem 2rem; background: #0056a0; color: #fff; border: none; border-radius: 6px; cursor: pointer; font-size: 1rem; }
+    button:hover { background: #003d73; }
+    output { display: block; margin-top: 1rem; padding: 1rem; background: #d4edda; border-radius: 6px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Event Registration</h1>
+  </header>
+  <main>
+    <form onsubmit="event.preventDefault(); document.getElementById('confirm').textContent = 'Registration submitted for ' + document.getElementById('name').value;">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" placeholder="Enter your name" required autofocus>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="name@example.com" required>
+
+      <label for="date">Event Date</label>
+      <input type="date" id="date" required>
+
+      <label for="eventType">Event Type</label>
+      <select id="eventType">
+        <option value="">Select...</option>
+        <option value="Clean-Up">Clean-Up</option>
+        <option value="Charity Run">Charity Run</option>
+        <option value="Workshop">Workshop</option>
+        <option value="Festival">Festival</option>
+      </select>
+
+      <label for="message">Message</label>
+      <textarea id="message" rows="4" placeholder="Any special requests?"></textarea>
+
+      <button type="submit">Register</button>
+      <output id="confirm"></output>
+    </form>
+  </main>
+  <footer>
+    <p>&copy; 2026 City Council</p>
+  </footer>
+</body>
+</html>

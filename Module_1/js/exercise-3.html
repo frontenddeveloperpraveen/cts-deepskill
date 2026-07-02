@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conditionals, Loops, Error Handling</title>
+</head>
+<body>
+  <h1>Upcoming Events</h1>
+  <ul id="eventList"></ul>
+  <script>
+    const events = [
+      { name: "Clean-Up", date: "2026-07-20", seats: 10 },
+      { name: "Charity Run", date: "2026-06-01", seats: 0 },
+      { name: "Workshop", date: "2026-08-05", seats: 25 },
+      { name: "Past Festival", date: "2025-12-01", seats: 5 }
+    ];
+    const today = new Date();
+
+    events.forEach(function(e) {
+      try {
+        var eventDate = new Date(e.date);
+        if (isNaN(eventDate.getTime())) throw new Error("Invalid date for " + e.name);
+        if (eventDate < today) throw new Error(e.name + " is a past event");
+        if (e.seats <= 0) throw new Error(e.name + " is fully booked");
+        var li = document.createElement("li");
+        li.textContent = e.name + " - " + e.date + " (" + e.seats + " seats)";
+        document.getElementById("eventList").appendChild(li);
+      } catch (err) {
+        console.warn("Skipped: " + err.message);
+      }
+    });
+  </script>
+</body>
+</html>

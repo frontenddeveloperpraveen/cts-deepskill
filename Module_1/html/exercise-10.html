@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Debugging Demo</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 700px; margin: 2rem auto; padding: 0 1rem; }
+    .card { padding: 1.5rem; border: 1px solid #ddd; border-radius: 8px; margin: 1rem 0; background: #fff; }
+    .highlight { background: #ffd700; }
+    button { padding: 0.5rem 1.5rem; background: #0056a0; color: #fff; border: none; border-radius: 6px; cursor: pointer; }
+    button:hover { background: #003d73; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Debugging with DevTools</h1>
+  </header>
+  <main>
+    <div class="card" id="debugCard">
+      <h2>Inspect This Card</h2>
+      <p>Right-click and select Inspect to view styles, modify them live, and experiment.</p>
+      <p class="highlight">This text uses the .highlight class.</p>
+    </div>
+
+    <button onclick="testFunction()">Click to See Console Log</button>
+
+    <p>Open DevTools Console (<kbd>F12</kbd>) to see log output. Set breakpoints in the Sources tab and reload.</p>
+  </main>
+  <footer>
+    <p>&copy; 2026 City Council</p>
+  </footer>
+  <script>
+    function testFunction() {
+      var x = 42;
+      var y = 58;
+      var sum = x + y;
+      console.log('Button clicked! x =', x, 'y =', y, 'sum =', sum);
+      document.getElementById('debugCard').style.backgroundColor = '#e8f4ff';
+    }
+    console.log('Page loaded. DevTools is ready for debugging.');
+    console.log('Try adding breakpoints in the Sources tab.');
+  </script>
+</body>
+</html>

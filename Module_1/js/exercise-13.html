@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Debugging & Testing</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 600px; margin: 2rem auto; padding: 0 1rem; }
+    label { display: block; margin-top: 1rem; font-weight: bold; }
+    input { width: 100%; padding: 0.5rem; margin-top: 0.25rem; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+    button { margin-top: 1.5rem; padding: 0.75rem 2rem; background: #0056a0; color: #fff; border: none; border-radius: 6px; cursor: pointer; }
+    .msg { margin-top: 1rem; padding: 1rem; border-radius: 6px; }
+    .success { background: #d4edda; color: #155724; }
+    .error { background: #f8d7da; color: #721c24; }
+  </style>
+</head>
+<body>
+  <h1>Debug Demo</h1>
+  <form id="debugForm">
+    <label for="debugName">Name</label>
+    <input type="text" id="debugName">
+    <label for="debugEmail">Email</label>
+    <input type="email" id="debugEmail">
+    <button type="submit">Submit</button>
+    <div class="msg" id="debugMsg"></div>
+  </form>
+  <p>Open DevTools Console and Network tab. Set breakpoints in the Sources tab to inspect variables.</p>
+  <script>
+    function validateForm(name, email) {
+      if (!name) return "Name is required";
+      if (!email || !email.includes("@")) return "Valid email required";
+      return "";
+    }
+
+    function submitForm() {
+      var name = document.getElementById("debugName").value;
+      var email = document.getElementById("debugEmail").value;
+      var error = validateForm(name, email);
+      var msg = document.getElementById("debugMsg");
+
+      console.log("Form values:", { name: name, email: email });
+      console.log("Validation result:", error || "Passed");
+
+      if (error) {
+        msg.textContent = error;
+        msg.className = "msg error";
+      } else {
+        msg.textContent = "Submitted: " + name + " (" + email + ")";
+        msg.className = "msg success";
+        console.log("Submitting payload:", JSON.stringify({ name: name, email: email }));
+      }
+
+      msg.style.display = "block";
+    }
+
+    document.getElementById("debugForm").onsubmit = function(e) {
+      e.preventDefault();
+      submitForm();
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern JS Features</title>
+</head>
+<body>
+  <h1>ES6+ Features Demo</h1>
+  <div id="output"></div>
+  <script>
+    const event = { name: "Clean-Up", date: "2026-07-20", seats: 50, category: "Environment" };
+    const { name, date, category } = event;
+
+    function displayEvent(n = "Untitled", d = "TBD", cat = "General") {
+      return `Event: ${n} | Date: ${d} | Category: ${cat}`;
+    }
+
+    const eventsList = [
+      { name: "Clean-Up", category: "Environment" },
+      { name: "Music Fest", category: "Music" }
+    ];
+
+    const cloned = [...eventsList];
+    cloned.push({ name: "Workshop", category: "Education" });
+
+    const out = document.getElementById("output");
+    out.innerHTML = "<p>" + displayEvent(name, date, category) + "</p>";
+    out.innerHTML += "<p>Original count: " + eventsList.length + " | Cloned count: " + cloned.length + "</p>";
+    out.innerHTML += "<ul>" + cloned.map(function(e) { return "<li>" + e.name + " (" + e.category + ")</li>"; }).join("") + "</ul>";
+  </script>
+</body>
+</html>

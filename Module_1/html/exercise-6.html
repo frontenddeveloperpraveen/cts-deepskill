@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Feedback</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 600px; margin: 2rem auto; padding: 0 1rem; }
+    label { display: block; margin-top: 1rem; font-weight: bold; }
+    input, select, textarea { width: 100%; padding: 0.5rem; margin-top: 0.25rem; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+    button { margin-top: 1rem; padding: 0.75rem 2rem; background: #0056a0; color: #fff; border: none; border-radius: 6px; cursor: pointer; }
+    button:hover { background: #003d73; }
+    .fee-display { font-size: 1.5rem; font-weight: bold; color: #28a745; margin-top: 0.5rem; }
+    .char-count { text-align: right; color: #6c757d; font-size: 0.9rem; }
+    img { width: 300px; height: 200px; object-fit: cover; border-radius: 8px; cursor: pointer; transition: transform 0.3s; display: block; margin: 1rem 0; }
+    .enlarged { transform: scale(1.5); }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Event Feedback</h1>
+  </header>
+  <main>
+    <label for="phone">Phone Number</label>
+    <input type="tel" id="phone" placeholder="123-456-7890" onblur="if(this.value && !/^\d{3}-\d{3}-\d{4}$/.test(this.value)) alert('Use format 123-456-7890')">
+
+    <label for="feeSelect">Event Type</label>
+    <select id="feeSelect" onchange="document.getElementById('feeDisplay').textContent = this.value ? '$' + (this.value === 'Workshop' ? '10' : this.value === 'Festival' ? '25' : '15') : ''">
+      <option value="">Select event fee...</option>
+      <option value="Clean-Up">Clean-Up ($15)</option>
+      <option value="Charity Run">Charity Run ($15)</option>
+      <option value="Workshop">Workshop ($10)</option>
+      <option value="Festival">Festival ($25)</option>
+    </select>
+    <div class="fee-display" id="feeDisplay"></div>
+
+    <label for="feedback">Feedback</label>
+    <textarea id="feedback" rows="4" placeholder="Type your feedback..." onkeyup="document.getElementById('charCount').textContent = this.value.length + ' characters'"></textarea>
+    <div class="char-count" id="charCount">0 characters</div>
+
+    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=300&h=200&fit=crop" alt="Double-click to enlarge" ondblclick="this.classList.toggle('enlarged')">
+
+    <button onclick="alert('Feedback submitted. Thank you!')">Submit Feedback</button>
+  </main>
+  <footer>
+    <p>&copy; 2026 City Council</p>
+  </footer>
+</body>
+</html>

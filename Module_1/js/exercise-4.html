@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Functions, Scope, Closures</title>
+</head>
+<body>
+  <h1>Event Functions</h1>
+  <div id="output"></div>
+  <script>
+    var events = [];
+
+    function addEvent(name, category) {
+      events.push({ name: name, category: category, registrations: 0 });
+    }
+
+    function registerUser(eventName) {
+      var event = events.find(function(e) { return e.name === eventName; });
+      if (event) event.registrations++;
+    }
+
+    function filterEventsByCategory(category) {
+      return events.filter(function(e) { return e.category === category; });
+    }
+
+    function registrationTracker(category) {
+      var count = 0;
+      return function() {
+        count++;
+        return count + " total registrations in " + category;
+      };
+    }
+
+    addEvent("Clean-Up", "Environment");
+    addEvent("Charity Run", "Sports");
+    addEvent("Tree Planting", "Environment");
+    registerUser("Clean-Up");
+    registerUser("Clean-Up");
+    registerUser("Charity Run");
+
+    var envTracker = registrationTracker("Environment");
+    var out = document.getElementById("output");
+    out.innerHTML = "<p>All events: " + JSON.stringify(events) + "</p>";
+    out.innerHTML += "<p>Environment events: " + JSON.stringify(filterEventsByCategory("Environment")) + "</p>";
+    out.innerHTML += "<p>" + envTracker() + "</p>";
+    out.innerHTML += "<p>" + envTracker() + "</p>";
+  </script>
+</body>
+</html>

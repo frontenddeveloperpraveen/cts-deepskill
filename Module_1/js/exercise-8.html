@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Handling</title>
+  <style>
+    .event-card { border: 1px solid #ddd; border-radius: 8px; padding: 1rem; margin: 0.5rem 0; background: #f9f9f9; }
+    .event-card h3 { margin: 0 0 0.5rem; color: #0056a0; }
+    .event-card button { padding: 0.4rem 1rem; background: #28a745; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
+    .event-card button:hover { background: #218838; }
+    .event-card .registered { background: #6c757d; cursor: default; }
+  </style>
+</head>
+<body>
+  <h1>Interactive Events</h1>
+  <label>Filter by category:
+    <select id="categoryFilter" onchange="filterEvents()">
+      <option value="All">All</option>
+      <option value="Environment">Environment</option>
+      <option value="Music">Music</option>
+      <option value="Sports">Sports</option>
+    </select>
+  </label>
+  <label style="margin-left:1rem;">Search:
+    <input type="text" id="searchInput" onkeydown="quickSearch()">
+  </label>
+  <div id="eventContainer"></div>
+  <script>
+    var eventsData = [
+      { name: "Community Clean-Up", category: "Environment" },
+      { name: "Music Festival", category: "Music" },
+      { name: "Jazz Night", category: "Music" },
+      { name: "Charity Run", category: "Sports" }
+    ];
+    var filtered = eventsData.slice();
+
+    function renderEvents(list) {
+      var container = document.getElementById("eventContainer");
+      container.innerHTML = "";
+      list.forEach(function(e) {
+        var card = document.createElement("div");
+        card.className = "event-card";
+        card.innerHTML = "<h3>" + e.name + "</h3><p>Category: " + e.category + "</p>";
+        var btn = document.createElement("button");
+        btn.textContent = "Register";
+        btn.onclick = function() {
+          btn.textContent = "Registered";
+          btn.className = "registered";
+          btn.disabled = true;
+          console.log("Registered for " + e.name);
+        };
+        card.appendChild(btn);
+        container.appendChild(card);
+      });
+    }
+
+    function filterEvents() {
+      var cat = document.getElementById("categoryFilter").value;
+      if (cat === "All") filtered = eventsData.slice();
+      else filtered = eventsData.filter(function(e) { return e.category === cat; });
+      renderEvents(filtered);
+    }
+
+    function quickSearch() {
+      var q = document.getElementById("searchInput").value.toLowerCase();
+      var results = eventsData.filter(function(e) { return e.name.toLowerCase().includes(q); });
+      renderEvents(results);
+    }
+
+    renderEvents(eventsData);
+  </script>
+</body>
+</html>

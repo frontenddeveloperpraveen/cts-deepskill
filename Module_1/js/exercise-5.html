@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Objects & Prototypes</title>
+</head>
+<body>
+  <h1>Event Objects</h1>
+  <div id="output"></div>
+  <script>
+    function Event(name, date, capacity) {
+      this.name = name;
+      this.date = date;
+      this.capacity = capacity;
+      this.registered = 0;
+    }
+
+    Event.prototype.checkAvailability = function() {
+      return this.capacity - this.registered;
+    };
+
+    var e1 = new Event("Clean-Up", "2026-07-20", 50);
+    var e2 = new Event("Workshop", "2026-08-05", 20);
+    e1.registered = 10;
+    e2.registered = 18;
+
+    var out = document.getElementById("output");
+    out.innerHTML = "<h3>Event Details</h3>";
+    Object.entries(e1).forEach(function(entry) {
+      out.innerHTML += "<p>" + entry[0] + ": " + entry[1] + "</p>";
+    });
+    out.innerHTML += "<p><strong>Available seats: " + e1.checkAvailability() + "</strong></p>";
+    out.innerHTML += "<hr>";
+    Object.entries(e2).forEach(function(entry) {
+      out.innerHTML += "<p>" + entry[0] + ": " + entry[1] + "</p>";
+    });
+    out.innerHTML += "<p><strong>Available seats: " + e2.checkAvailability() + "</strong></p>";
+  </script>
+</body>
+</html>

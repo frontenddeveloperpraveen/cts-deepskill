@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Async JS & Fetch</title>
+  <style>
+    .spinner { display: none; width: 40px; height: 40px; border: 4px solid #f3f3f3; border-top: 4px solid #0056a0; border-radius: 50%; animation: spin 1s linear infinite; margin: 1rem 0; }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    .event-card { border: 1px solid #ddd; border-radius: 8px; padding: 1rem; margin: 0.5rem 0; background: #f9f9f9; }
+  </style>
+</head>
+<body>
+  <h1>Async Event Fetch</h1>
+  <button onclick="fetchWithThen()">Fetch with .then()</button>
+  <button onclick="fetchWithAsync()">Fetch with async/await</button>
+  <div class="spinner" id="spinner"></div>
+  <div id="output"></div>
+  <script>
+    var mockAPI = "https://jsonplaceholder.typicode.com/todos?_limit=5";
+
+    function showSpinner() { document.getElementById("spinner").style.display = "block"; }
+    function hideSpinner() { document.getElementById("spinner").style.display = "none"; }
+
+    function fetchWithThen() {
+      showSpinner();
+      document.getElementById("output").innerHTML = "";
+      fetch(mockAPI)
+        .then(function(res) { return res.json(); })
+        .then(function(data) {
+          hideSpinner();
+          var out = document.getElementById("output");
+          data.forEach(function(item) {
+            var card = document.createElement("div");
+            card.className = "event-card";
+            card.textContent = item.title;
+            out.appendChild(card);
+          });
+        })
+        .catch(function(err) {
+          hideSpinner();
+          document.getElementById("output").innerHTML = "<p style='color:red;'>Error: " + err.message + "</p>";
+        });
+    }
+
+    async function fetchWithAsync() {
+      showSpinner();
+      document.getElementById("output").innerHTML = "";
+      try {
+        var res = await fetch(mockAPI);
+        var data = await res.json();
+        hideSpinner();
+        var out = document.getElementById("output");
+        data.forEach(function(item) {
+          var card = document.createElement("div");
+          card.className = "event-card";
+          card.textContent = item.title;
+          out.appendChild(card);
+        });
+      } catch (err) {
+        hideSpinner();
+        document.getElementById("output").innerHTML = "<p style='color:red;'>Error: " + err.message + "</p>";
+      }
+    }
+  </script>
+</body>
+</html>

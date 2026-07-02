@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Types & Operators</title>
+</head>
+<body>
+  <h1>Event Seat Manager</h1>
+  <div id="output"></div>
+  <script>
+    const eventName = "Community Clean-Up";
+    const eventDate = "2026-07-15";
+    let seats = 50;
+
+    let info = `Event: ${eventName}\nDate: ${eventDate}\nAvailable Seats: ${seats}`;
+
+    seats--;
+    info += `\n\nAfter one registration:\nSeats left: ${seats}`;
+
+    seats -= 3;
+    info += `\n\nAfter 3 more registrations:\nSeats left: ${seats}`;
+
+    document.getElementById('output').textContent = info;
+    console.log(info);
+  </script>
+</body>
+</html>

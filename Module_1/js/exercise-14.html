@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery & Frameworks</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <style>
+    .event-card { border: 1px solid #ddd; border-radius: 8px; padding: 1rem; margin: 0.5rem 0; background: #f9f9f9; cursor: pointer; }
+    .event-card h3 { margin: 0 0 0.5rem; color: #0056a0; }
+    button { padding: 0.5rem 1.5rem; background: #0056a0; color: #fff; border: none; border-radius: 6px; cursor: pointer; margin: 0.25rem; }
+    button:hover { background: #003d73; }
+  </style>
+</head>
+<body>
+  <h1>jQuery Demo</h1>
+  <div id="eventContainer">
+    <div class="event-card"><h3>Clean-Up</h3><p>Saturday 9am</p></div>
+    <div class="event-card"><h3>Charity Run</h3><p>Sunday 7am</p></div>
+    <div class="event-card"><h3>Workshop</h3><p>Friday 2pm</p></div>
+  </div>
+  <button id="registerBtn">Register via jQuery</button>
+  <button id="toggleBtn">Fade In/Out Cards</button>
+  <p id="jqueryMsg"></p>
+  <hr>
+  <h3>Frameworks Note</h3>
+  <p>Moving to React or Vue provides component-based architecture, virtual DOM for performance, state management, and better tooling for building complex, interactive UIs like a community portal.</p>
+  <script>
+    $(document).ready(function() {
+      $("#registerBtn").click(function() {
+        $("#jqueryMsg").text("Registered using jQuery!").css("color", "#28a745");
+      });
+
+      var visible = true;
+      $("#toggleBtn").click(function() {
+        if (visible) {
+          $(".event-card").fadeOut();
+        } else {
+          $(".event-card").fadeIn();
+        }
+        visible = !visible;
+      });
+
+      $(".event-card").click(function() {
+        $(this).css("background", "#e8f4ff");
+      });
+    });
+  </script>
+</body>
+</html>
