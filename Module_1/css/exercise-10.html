@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 10 - Responsive Design</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .gallery img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; }
+    @media (max-width: 768px) {
+      .gallery { grid-template-columns: 1fr; }
+      .gallery img { height: 180px; }
+    }
+  </style>
+</head>
+<body>
+  <header id="mainHeader">
+    <h1 style="font-size: 2.5rem;">Responsive Portal</h1>
+  </header>
+  <main style="max-width: 900px; margin: 2rem auto; padding: 0 1rem;">
+    <h2>Gallery</h2>
+    <div class="gallery">
+      <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=400&h=300&fit=crop" alt="Event 1">
+      <img src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=400&h=300&fit=crop" alt="Event 2">
+      <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=400&h=300&fit=crop" alt="Event 3">
+      <img src="https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?w=400&h=300&fit=crop" alt="Event 4">
+    </div>
+    <p>Resize the browser below 768px to see the responsive changes: navigation stacks vertically, font sizes reduce, and grid becomes single column.</p>
+  </main>
+</body>
+</html>

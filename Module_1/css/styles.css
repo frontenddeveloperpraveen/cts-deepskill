@@ -1,0 +1,169 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f7fa;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Header */
+#mainHeader {
+  background: linear-gradient(135deg, #0056a0, #003d73);
+  color: #fff;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+#mainHeader h1 {
+  font-size: 2.5rem;
+  letter-spacing: 1px;
+}
+
+/* Navigation */
+.nav-menu {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 1rem 0;
+}
+
+.nav-menu li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s;
+}
+
+.nav-menu li a:link { color: #fff; }
+.nav-menu li a:visited { color: #ccc; }
+.nav-menu li a:hover { color: #ffd700; text-decoration: underline; }
+.nav-menu li a:active { color: #ff8c00; }
+
+/* Section headings */
+h2 {
+  font-size: 2rem;
+  color: #0056a0;
+  margin-bottom: 1rem;
+  border-bottom: 3px solid #0056a0;
+  padding-bottom: 0.5rem;
+}
+
+h3, p {
+  margin-bottom: 0.75rem;
+}
+
+/* Event cards */
+.eventCard {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  outline: none;
+}
+
+.eventCard:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* CTA button */
+.cta-button {
+  background-color: #007BFF;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #0056b3;
+}
+
+/* Events table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 0.75rem;
+  text-align: center;
+}
+
+th {
+  background-color: #0056a0;
+  color: #fff;
+  font-weight: 600;
+}
+
+tr:nth-child(even) {
+  background-color: #eef4fb;
+}
+
+tr:hover {
+  background-color: #dce8f5;
+}
+
+/* Multi-column news */
+.news-columns {
+  column-count: 2;
+  column-gap: 30px;
+  column-rule: 1px solid gray;
+}
+
+/* Footer */
+footer {
+  background-color: #003d73;
+  color: #fff;
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* Form fields */
+input:focus, select:focus, textarea:focus {
+  outline: 3px solid #ffd700;
+  outline-offset: 2px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-menu {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  #mainHeader h1 {
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .news-columns {
+    column-count: 1;
+  }
+}

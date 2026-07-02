@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 5 - Typography</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .typo-section { margin: 2rem 0; }
+    .typo-section h2 { font-family: 'Playfair Display', serif; }
+    .typo-section p { font-family: 'Raleway', sans-serif; font-size: 1.05rem; line-height: 1.8; text-align: justify; }
+    .typo-uppercase { text-transform: uppercase; letter-spacing: 2px; }
+    .typo-bold { font-weight: 700; font-style: italic; }
+  </style>
+</head>
+<body>
+  <header id="mainHeader">
+    <h1 style="font-family: 'Playfair Display', serif;">Typography Showcase</h1>
+  </header>
+  <main style="max-width: 900px; margin: 2rem auto; padding: 0 1rem;">
+    <div class="typo-section">
+      <h2>Playfair Display Heading</h2>
+      <p>This body text uses Raleway at 1.05rem with 1.8 line-height, justified alignment. The quick brown fox jumps over the lazy dog near the riverbank. Community events bring people together for a better tomorrow.</p>
+      <p class="typo-uppercase">This text is uppercased with 2px letter-spacing.</p>
+      <p class="typo-bold">This text is bold and italic.</p>
+    </div>
+  </main>
+</body>
+</html>

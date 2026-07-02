@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 11 - Debug & Test</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header id="mainHeader">
+    <h1>Debug & Test with DevTools</h1>
+  </header>
+  <main style="max-width: 900px; margin: 2rem auto; padding: 0 1rem;">
+    <h2>Testing Guide</h2>
+    <div class="eventCard">
+      <h3>Use Chrome DevTools</h3>
+      <ol style="margin-left: 1.5rem; line-height: 2;">
+        <li>Open DevTools with <kbd>F12</kbd> or <kbd>Ctrl+Shift+I</kbd></li>
+        <li>Use the <strong>Device Toolbar</strong> (<kbd>Ctrl+Shift+M</kbd>) to simulate mobile/tablet/desktop sizes</li>
+        <li>Inspect this card to see applied styles in the Styles panel</li>
+        <li>Toggle CSS properties on/off to test changes live</li>
+        <li>Check the <strong>Network tab</strong> to verify styles.css loaded successfully (status 200)</li>
+        <li>View the <strong>Computed tab</strong> to see final box model values</li>
+      </ol>
+    </div>
+    <div style="min-height: 400px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 8px; padding: 2rem; color: #fff; margin: 1rem 0;">
+      <h3 style="color:#fff;">Test Area</h3>
+      <p>This gradient section is styled inline. Use DevTools to inspect and modify it live.</p>
+    </div>
+  </main>
+</body>
+</html>

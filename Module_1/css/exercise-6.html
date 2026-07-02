@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 6 - Link & List Styling</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .styled-links a { margin-right: 1rem; font-weight: 600; }
+    .styled-links a:link { color: #0056a0; text-decoration: none; }
+    .styled-links a:visited { color: #6c757d; }
+    .styled-links a:hover { color: #ff8c00; text-decoration: underline; }
+    .styled-links a:active { color: #dc3545; }
+    .custom-list { list-style-type: square; list-style-position: inside; padding: 0.5rem 1rem; }
+    .custom-list li { padding: 0.4rem 0; margin: 0.2rem 0; border-bottom: 1px dashed #ccc; }
+  </style>
+</head>
+<body>
+  <header id="mainHeader">
+    <nav>
+      <ul class="nav-menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Events</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main style="max-width: 900px; margin: 2rem auto; padding: 0 1rem;">
+    <h2>Link Pseudo-Classes</h2>
+    <div class="styled-links">
+      <a href="#">Home</a>
+      <a href="#">Events</a>
+      <a href="#">Gallery</a>
+    </div>
+    <h2 style="margin-top: 2rem;">Styled List</h2>
+    <ul class="custom-list">
+      <li>Community Clean-Up - Saturday 9am</li>
+      <li>Charity Run - Sunday 7am</li>
+      <li>Book Fair - Next Friday 10am</li>
+      <li>Farmers Market - Every Saturday</li>
+    </ul>
+    <p>The nav menu above uses list-style: none to remove bullets.</p>
+  </main>
+</body>
+</html>

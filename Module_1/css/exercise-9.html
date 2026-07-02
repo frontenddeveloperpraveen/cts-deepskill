@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 9 - Multiple Columns</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .bulletin { max-width: 800px; margin: 2rem auto; padding: 1rem; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    .bulletin h2 { column-span: all; text-align: center; border-bottom: none; }
+  </style>
+</head>
+<body>
+  <header id="mainHeader">
+    <h1>Community Bulletin</h1>
+  </header>
+  <main style="max-width: 900px; margin: 2rem auto; padding: 0 1rem;">
+    <div class="bulletin">
+      <h2>News in the Community</h2>
+      <div class="news-columns">
+        <p>The annual Community Clean-Up event was a huge success this year with over 500 volunteers participating across 15 neighborhoods. Residents came together early Saturday morning to pick up litter, plant trees, and beautify public spaces. Local businesses donated supplies and refreshments.</p>
+        <p>The City Council has approved the new Community Center project, set to break ground next spring. The facility will include a gymnasium, meeting rooms, a library branch, and an outdoor amphitheater. Construction is expected to take 18 months and will create over 200 local jobs.</p>
+        <p>Farmers Market season is starting earlier this year, beginning the first Saturday of March. Vendors will offer fresh produce, artisan breads, local honey, and handmade crafts. The market will run every Saturday from 8am to 1pm in the City Square parking lot.</p>
+        <p>Registration for the Charity 5K Run is now open. The event will take place on the last Sunday of the month, starting at 7am from the Riverfront Park. Proceeds will benefit the local food bank. Early bird registration includes a free t-shirt.</p>
+      </div>
+    </div>
+    <p>The text above uses column-count: 2, column-gap: 30px, and column-rule: 1px solid gray.</p>
+  </main>
+</body>
+</html>

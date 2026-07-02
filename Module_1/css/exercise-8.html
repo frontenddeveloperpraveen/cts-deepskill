@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 8 - Box Model</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .box-demo { width: 300px; margin: 2rem auto; padding: 1.5rem; border: 3px solid #0056a0; background: #fff; border-radius: 8px; text-align: center; }
+    .hidden-vis { visibility: hidden; }
+    .hidden-none { display: none; }
+    .form-field { width: 100%; padding: 0.5rem; margin-bottom: 1rem; border: 1px solid #ccc; border-radius: 4px; }
+    .form-field:focus { outline: 3px solid #ffd700; outline-offset: 2px; }
+  </style>
+</head>
+<body>
+  <header id="mainHeader">
+    <h1>Box Model Demo</h1>
+  </header>
+  <main style="max-width: 900px; margin: 2rem auto; padding: 0 1rem;">
+    <div class="box-demo">
+      <h3>Box Model</h3>
+      <p>border: 3px, padding: 1.5rem, margin: 2rem, border-radius: 8px</p>
+    </div>
+    <h2>Form with Outline</h2>
+    <form>
+      <input type="text" class="form-field" placeholder="Click to see outline highlight">
+      <input type="email" class="form-field" placeholder="Another field with focus outline">
+    </form>
+    <h2>visibility vs display</h2>
+    <div style="display: flex; gap: 1rem;">
+      <div style="flex:1; background: #e9ecef; padding: 1rem;">
+        <p>Visible box</p>
+        <div class="hidden-vis" style="background:#dc3545; color:#fff; padding:1rem;">visibility: hidden</div>
+        <p>This text is still visible (hidden box takes space).</p>
+      </div>
+      <div style="flex:1; background: #e9ecef; padding: 1rem;">
+        <p>Visible box</p>
+        <div class="hidden-none" style="background:#28a745; color:#fff; padding:1rem;">display: none</div>
+        <p>The green box is removed from flow (no space taken).</p>
+      </div>
+    </div>
+    <p>Inspect this page with DevTools to see box model values.</p>
+  </main>
+</body>
+</html>

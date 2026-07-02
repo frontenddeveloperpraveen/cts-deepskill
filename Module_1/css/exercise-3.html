@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 3 - Selectors Playground</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .highlight { background-color: #fff3cd; padding: 0.25rem; }
+  </style>
+</head>
+<body>
+  <header id="mainHeader">
+    <h1>Selectors Playground</h1>
+  </header>
+  <main style="max-width: 900px; margin: 2rem auto; padding: 0 1rem;">
+    <h2>This h2 uses an element selector</h2>
+    <div class="eventCard">
+      <h3>Event: Community Clean-Up</h3>
+      <p>This card uses the .eventCard class selector.</p>
+    </div>
+    <div class="eventCard">
+      <h3>Event: Charity Run</h3>
+      <p>Another .eventCard with grouped h3, p styling.</p>
+    </div>
+    <p>The universal selector (*) reset margin/padding on all elements.</p>
+    <p>The #mainHeader ID selector styles the banner above.</p>
+    <p>Grouping selector targets h3 and p together.</p>
+  </main>
+</body>
+</html>
