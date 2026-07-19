@@ -1,6 +1,6 @@
 21:05:48.403 [main] ERROR com.example.LoggingExample - This is an error message
 21:05:48.409 [main] WARN  com.example.LoggingExample - This is a warning message
-21:05:49.132 [main] INFO  c.e.ParameterizedLoggingExample - User 'Dhairya Gothi' attempted to log in. Attempt count: 3
+21:05:49.132 [main] INFO  c.e.ParameterizedLoggingExample - User 'Praveen K R' attempted to log in. Attempt count: 3
 21:05:49.876 [main] DEBUG com.example.AppenderLoggingExample - Debug event: starting appender logging test
 21:05:49.880 [main] INFO  com.example.AppenderLoggingExample - Info event: application configuration loaded successfully
 21:05:49.882 [main] WARN  com.example.AppenderLoggingExample - Warn event: resources usage is near threshold levels
